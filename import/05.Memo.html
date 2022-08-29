@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="root"></div>
+    </body>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        function Btn(props){
+            return (
+                <button
+                    style = {{
+                        backgroundColor : "tomato",
+                        color : "white",
+                        padding : "10px 20px",
+                        borderRadius : 10,
+                    }}
+                    onClick={props.onClick}
+                >
+                    {props.text}
+                </button>
+            )
+        };
+        
+        const MemorizeBtn = React.memo(Btn);    // 값의 변경이 없는 태그는 리랜더링 되지 않도록 설정
+
+        const App = () => {
+            const [value, setValue] = React.useState("Save Changes");
+            const changeValue = () => setValue("Revert Changes");
+            return (
+                <div>
+                    <MemorizeBtn text={value} onClick={changeValue} />
+                    <MemorizeBtn text="Continue" />
+                </div>
+            );
+        };
+
+        const root = document.getElementById("root");
+        ReactDOM.render(<App />, root);
+    </script>
+</html>

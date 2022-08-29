@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="root"></div>
+    </body>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        const root = document.getElementById("root");
+
+        /* JSX 랜더링 문법 */
+        const App = () => {
+            //      변경된 값, 변경시킬 함수
+            const [counter, setCounter] = React.useState(0);
+            const onClick = () =>{
+                // setCounter(counter + 1);
+                setCounter((current) => current +1);
+            }
+
+            return (
+                <div>
+                    <h3>Total Clicks : {counter}</h3>
+                    <button onClick={onClick}>Click Me</button>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<App />, root);
+
+        /* 기본 랜더링 문법 */
+
+        /* let counter = 0;
+        function countUp() {
+            counter = counter + 1;
+            render();
+        }; */
+
+        /* const render = () => (
+            ReactDOM.render(<Container/>, root)
+        ); */
+
+        /* const Container = () => (
+            <div>
+                <h3>Total Clicks : {counter}</h3>
+                <button onClick={countUp}>Click Me</button>
+            </div>
+        ); */
+
+        /* render(); */
+    </script>
+</html>

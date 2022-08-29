@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="root"></div>
+    </body>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        const root = document.getElementById("root");
+
+        /* JSX 문법*/
+        function Title(){
+            return (
+                <h3 id="title" onMouseEnter={() => console.log("Mouser Enter")}>
+                    Hello I'm a Title
+                </h3>
+            );
+        }
+
+        const Button = () => (
+            <button style={{backgroundColor : "tomato",}} onClick={() => console.log("im Clicked")}>
+                Click Me
+            </button>
+        );
+
+        const Container = () => (
+            <div>
+                <Title />
+                <Button />
+            </div>
+        );
+        ReactDOM.render(<Container/>, root);
+
+        /* 기본 React 문법 */
+
+        /* const h3 = React.createElement(
+            "h3",
+            {
+                id : "title",
+                onMouseEnter : () => console.log("Mouser Enter"),
+            },
+            "Hello I'm a Title"
+        ); */
+
+        /* const btn = React.createElement(
+            "button",
+            {
+                
+                onClick : () => console.log("im Clicked"),
+            },
+            "Click Me"
+        ); */
+
+        /* const container = React.createElement("div", null, [title, btn]);
+        ReactDOM.render(container, root); */
+    </script>
+</html>
