@@ -4,7 +4,8 @@ import App from './App';
 import UseState from './UseState';
 import UseEffect from './UseEffect';
 import Cleanup from './Cleanup';
-import ToDo from './List';
+import List from './List';
+import Example01 from './Example01';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,8 +18,10 @@ root.render(
       <UseEffect />
       <hr/>
       <Cleanup />
+      <hr/>
+      <List />
       <hr/> */}
-      <ToDo />
+      <Example01/>
       <hr/>
     </div>
   // </React.StrictMode>
